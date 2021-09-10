@@ -7,6 +7,7 @@ use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 
 /**
@@ -37,6 +38,8 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Appointment whereOutOfOfficeDate($value)
  * @method static Builder|Appointment wherePostcode($value)
  * @method static Builder|Appointment whereUpdatedAt($value)
+ * @property-read User $consultant
+ * @property-read Contact $contact
  */
 class Appointment extends Model
 {
@@ -59,4 +62,14 @@ class Appointment extends Model
         'out_of_office_date' => 'datetime',
         'back_to_office_date' => 'datetime',
     ];
+
+    public function contact(): BelongsTo
+    {
+        return $this->belongsTo(Contact::class);
+    }
+
+    public function consultant(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'consultant_id');
+    }
 }
