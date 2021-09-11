@@ -11,7 +11,7 @@ class GoogleMapService implements GoogleMapServiceContract
     /**
      * @throws RequestException
      */
-    public function getDistance(array $locationOne, array $locationTwo)
+    public function getDistance(array $locationOne, array $locationTwo): array
     {
         $url = sprintf(
             "https://maps.googleapis.com/maps/api/distancematrix/json?origins=%s&destinations=%s" .
@@ -31,7 +31,7 @@ class GoogleMapService implements GoogleMapServiceContract
     /**
      * @throws RequestException
      */
-    public function getAddress(array $coordinates)
+    public function getAddress(array $coordinates): string
     {
         $url = sprintf(
             "https://maps.googleapis.com/maps/api/geocode/json?latlng=%s&key=%s",
