@@ -21,12 +21,25 @@ class ContactFactory extends Factory
      */
     public function definition(): array
     {
+        $postcodes = [
+            "TW118RR",
+            "EC1A1BB",
+            "CR26XH",
+            "DN551PT",
+            "B11HQ",
+            "BX11LT",
+            "BX47SB",
+            "BX55AT",
+            "DA11RT",
+            "DH981BT"
+        ];
+
         return [
             'name' => $this->faker->name,
             'email' => $this->faker->email,
             'phone' => $this->faker->phoneNumber,
             'address' => $this->faker->address,
-            'postcode' => $this->faker->postcode
+            'postcode' => $this->faker->randomElement($postcodes)
         ];
     }
 }

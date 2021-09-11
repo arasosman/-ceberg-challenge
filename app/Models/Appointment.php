@@ -24,6 +24,7 @@ use Illuminate\Support\Carbon;
  * @property Carbon $appointment_date
  * @property Carbon $out_of_office_date
  * @property Carbon $back_to_office_date
+ * @property int $distance
  * @property int $contact_id
  * @property int $consultant_id
  * @property Carbon|null $created_at
@@ -48,6 +49,7 @@ class Appointment extends Model
     protected $fillable = [
         'address',
         'postcode',
+        'distance',
         'appointment_date',
         'out_of_office_date',
         'back_to_office_date',
@@ -56,6 +58,7 @@ class Appointment extends Model
     ];
 
     protected $casts = [
+        'distance' => 'integer',
         'contact_id' => 'integer',
         'consultant_id' => 'integer',
         'appointment_date' => 'datetime',

@@ -17,6 +17,7 @@ class CreateAppointmentsTable extends Migration
             $table->id();
             $table->text('address');
             $table->string('postcode')->index();
+            $table->integer('distance')->nullable();
             $table->timestamp('appointment_date');
             $table->timestamp('out_of_office_date')->nullable();
             $table->timestamp('back_to_office_date')->nullable();
