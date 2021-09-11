@@ -1,0 +1,515 @@
+{
+	"info": {
+		"_postman_id": "d1f8af6f-adf8-4ff3-b701-06dcb062d8fa",
+		"name": "Iceberg",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@test.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://iceberg-challenge-aras.herokuapp.com/api/auth/login",
+							"protocol": "https",
+							"host": [
+								"iceberg-challenge-aras",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Me",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://iceberg-challenge-aras.herokuapp.com/api/auth/me",
+							"protocol": "https",
+							"host": [
+								"iceberg-challenge-aras",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://iceberg-challenge-aras.herokuapp.com/api/auth/refresh",
+							"protocol": "https",
+							"host": [
+								"iceberg-challenge-aras",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://iceberg-challenge-aras.herokuapp.com/api/auth/refresh",
+							"protocol": "https",
+							"host": [
+								"iceberg-challenge-aras",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Register",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"test\",\r\n    \"email\": \"email@test.com\",\r\n    \"password\": \"Oa1234.@\",\r\n    \"password_confirmation\": \"Oa1234.@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://iceberg-challenge-aras.herokuapp.com/api/auth/register",
+							"protocol": "https",
+							"host": [
+								"iceberg-challenge-aras",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Contact",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://iceberg-challenge-aras.herokuapp.com/api/contacts",
+							"protocol": "https",
+							"host": [
+								"iceberg-challenge-aras",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"test\",\r\n    \"email\": \"test@ttt.com\",\r\n    \"phone\": \"123\",\r\n    \"postcode\": \"TW118RR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://iceberg-challenge-aras.herokuapp.com/api/contacts",
+							"protocol": "https",
+							"host": [
+								"iceberg-challenge-aras",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "javascript"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://iceberg-challenge-aras.herokuapp.com/api/contacts/13",
+							"protocol": "https",
+							"host": [
+								"iceberg-challenge-aras",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"contacts",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"changed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://iceberg-challenge-aras.herokuapp.com/api/contacts/13",
+							"protocol": "https",
+							"host": [
+								"iceberg-challenge-aras",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"contacts",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://iceberg-challenge-aras.herokuapp.com/api/contacts/11",
+							"protocol": "https",
+							"host": [
+								"iceberg-challenge-aras",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"contacts",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Appointment",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://iceberg-challenge-aras.herokuapp.com/api/appointments?created_at=2021-09-10",
+							"protocol": "https",
+							"host": [
+								"iceberg-challenge-aras",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"appointments"
+							],
+							"query": [
+								{
+									"key": "created_at",
+									"value": "2021-09-10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\": \"test\",\r\n    \"postcode\": \"TW118RR\",\r\n    \"appointment_date\": \"2021-10-10 16:00:00\",\r\n    \"contact_id\": 1,\r\n    \"consultant_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://iceberg-challenge-aras.herokuapp.com/api/appointments",
+							"protocol": "https",
+							"host": [
+								"iceberg-challenge-aras",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"appointments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "javascript"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://iceberg-challenge-aras.herokuapp.com/api/appointments/11",
+							"protocol": "https",
+							"host": [
+								"iceberg-challenge-aras",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"appointments",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\": \"changed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://iceberg-challenge-aras.herokuapp.com/api/appointments/11",
+							"protocol": "https",
+							"host": [
+								"iceberg-challenge-aras",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"appointments",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://iceberg-challenge-aras.herokuapp.com/api/appointments/11",
+							"protocol": "https",
+							"host": [
+								"iceberg-challenge-aras",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"appointments",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzMTM2OTE5MiwiZXhwIjoxNjMxMzcyNzkyLCJuYmYiOjE2MzEzNjkxOTIsImp0aSI6IlhCVFYwZG1TRE1Ld09ZZjYiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.GHBX-I_eDfn9oWwbrwi6lo8dUsIePK4ZXKfbm8zcp0A",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
