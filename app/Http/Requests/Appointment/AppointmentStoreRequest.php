@@ -21,7 +21,7 @@ class AppointmentStoreRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'address' => 'string',
