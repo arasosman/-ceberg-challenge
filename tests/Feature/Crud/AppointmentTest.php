@@ -4,6 +4,7 @@ namespace Tests\Feature\Crud;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 
 class AppointmentTest extends TestCase
@@ -18,6 +19,20 @@ class AppointmentTest extends TestCase
 
     public function testCreateAppointmentSuccess()
     {
+        Http::fake([
+            'api.postcodes.io/*' => Http::sequence()
+                ->push(['result' => ["postcode" => "TW11 8RR", "longitude" => "-0.340473", "latitude" => "51.428852"]])
+                ->push(['result' => ["postcode" => "TW12 8RR", "longitude" => "-0.320473", "latitude" => "51.448852"]])
+                ->push(['result' => ["postcode" => "TW11 8RR", "longitude" => "-0.340473", "latitude" => "51.428852"]])
+                ->push(['result' => ["postcode" => "TW12 8RR", "longitude" => "-0.320473", "latitude" => "51.448852"]])
+                ->pushStatus(404)
+            ,
+            'maps.googleapis.com/*' => Http::sequence()
+                ->push(['rows' => [['elements' => [['distance' => ['value' => 2], 'duration' => ['value' => 1]]]]]])
+                ->push(['rows' => [['elements' => [['distance' => ['value' => 2], 'duration' => ['value' => 1]]]]]])
+                ->pushStatus(404)
+            ,
+        ]);
         $this->actingAs(User::find(1))
             ->post('/api/appointments', [
                 "address" => "test",
@@ -39,7 +54,7 @@ class AppointmentTest extends TestCase
                     '*' => [
                         "id",
                         "address",
-                        "postcode" ,
+                        "postcode",
                         "appointment_date",
                         "contact_id",
                         "consultant_id",
@@ -57,7 +72,7 @@ class AppointmentTest extends TestCase
                 'data' => [
                     "id",
                     "address",
-                    "postcode" ,
+                    "postcode",
                     "appointment_date",
                     "contact_id",
                     "consultant_id",
@@ -74,7 +89,7 @@ class AppointmentTest extends TestCase
                 'data' => [
                     "id",
                     "address",
-                    "postcode" ,
+                    "postcode",
                     "appointment_date",
                     "contact_id",
                     "consultant_id",
@@ -82,6 +97,7 @@ class AppointmentTest extends TestCase
             ])
             ->assertJsonPath('data.address', 'changed');
     }
+
     public function testDeleteContactSuccess()
     {
         $this->actingAs(User::find(1))

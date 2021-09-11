@@ -4,6 +4,7 @@ namespace Tests\Feature\Crud;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 
 class ContactTest extends TestCase
@@ -18,6 +19,17 @@ class ContactTest extends TestCase
 
     public function testCreateContactSuccess()
     {
+        Http::fake([
+            'api.postcodes.io/*' => Http::sequence()
+                ->push(['result' => ["postcode" => "TW11 8RR", "longitude" => "-0.340473", "latitude" => "51.428852"]])
+                ->pushStatus(404)
+            ,
+            'maps.googleapis.com/*' => Http::sequence()
+                ->push(['results' => [['formatted_address' => 'test']]])
+                ->pushStatus(404)
+            ,
+        ]);
+
         $this->actingAs(User::find(1))
             ->post('/api/contacts', [
                 "name" => "test",

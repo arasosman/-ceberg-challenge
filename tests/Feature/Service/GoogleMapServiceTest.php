@@ -19,7 +19,7 @@ class GoogleMapServiceTest extends TestCase
         $this->assertEquals([
             "text" => "1.7 km",
             "value" => 1660
-        ], $result);
+        ], $result['distance']);
     }
 
     public function testGoogleApiAddress()

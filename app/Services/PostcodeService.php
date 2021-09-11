@@ -17,7 +17,6 @@ class PostcodeService implements PostcodeServiceContract
     {
         $response = Http::get($this->baseUrl . '/postcodes/' . $postcode);
         $response->throw();
-
         return $response->json('result');
     }
 

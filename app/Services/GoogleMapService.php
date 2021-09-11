@@ -25,7 +25,7 @@ class GoogleMapService implements GoogleMapServiceContract
         $response->throw();
         $result = $response->json();
 
-        return $result["rows"][0]["elements"][0]['distance'];
+        return $result["rows"][0]["elements"][0];
     }
 
     /**
