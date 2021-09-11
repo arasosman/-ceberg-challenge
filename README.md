@@ -1,4 +1,4 @@
-##Iceberg Digital Challenge
+## Iceberg Digital Challenge
 
 Static code analysis and tests were given importance in the project.
 
