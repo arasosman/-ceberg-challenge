@@ -2,7 +2,7 @@
 
 Static code analysis and tests were given importance in the project.
 
-## Proje adresi
+## Project Address
 
 https://iceberg-challenge-aras.herokuapp.com
 
