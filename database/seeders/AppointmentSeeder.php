@@ -14,6 +14,9 @@ class AppointmentSeeder extends Seeder
      */
     public function run()
     {
-        Appointment::factory(10)->create([]);
+        Appointment::factory(3)->create();
+        Appointment::factory(3)->create(['created_at' => now()->subDays(1)]);
+        Appointment::factory(3)->create(['created_at' => now()->subDays(2)]);
+        Appointment::factory(3)->create(['created_at' => now()->subDays(3)]);
     }
 }

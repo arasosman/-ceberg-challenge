@@ -31,7 +31,8 @@ class AppointmentRequest extends FormRequest
             'out_of_office_date' => 'date|date_format:Y-m-d H:i:s|after:now',
             'back_to_office_date' => 'date|date_format:Y-m-d H:i:s|after:now',
             'contact_id' => 'integer|exists:contacts,id',
-            'consultant_id' => 'integer|exists:users,id'
+            'consultant_id' => 'integer|exists:users,id',
+            'created_at' => 'date|before:now'
         ];
     }
 }

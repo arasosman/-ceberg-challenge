@@ -36,6 +36,7 @@ class AppointmentRepository extends BaseRepository implements AppointmentReposit
             'appointment_date',
             'contact_id',
             'consultant_id',
+            'created_at'
         ];
 
         foreach ($searchableParams as $value) {
@@ -66,5 +67,10 @@ class AppointmentRepository extends BaseRepository implements AppointmentReposit
     protected function searchAppointmentDate($value)
     {
         $this->query->whereDate('appointments.appointment_date', '=', $value);
+    }
+
+    protected function searchCreatedAt($value)
+    {
+        $this->query->whereDate('appointments.created_at', '=', $value);
     }
 }
