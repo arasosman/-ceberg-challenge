@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Appointment;
 
+use App\Rules\ValidatePostcode;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AppointmentRequest extends FormRequest
@@ -25,7 +26,7 @@ class AppointmentRequest extends FormRequest
     {
         return [
             'address' => 'string',
-            'postcode' => 'string',
+            'postcode' => ['string', new ValidatePostcode],
             'appointment_date' => 'date|date_format:Y-m-d H:i:s|after:now',
             'out_of_office_date' => 'date|date_format:Y-m-d H:i:s|after:now',
             'back_to_office_date' => 'date|date_format:Y-m-d H:i:s|after:now',

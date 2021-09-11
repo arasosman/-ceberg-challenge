@@ -20,14 +20,9 @@ class ContactTest extends TestCase
     public function testCreateContactSuccess()
     {
         Http::fake([
-            'api.postcodes.io/*' => Http::sequence()
-                ->push(['result' => ["postcode" => "TW11 8RR", "longitude" => "-0.340473", "latitude" => "51.428852"]])
-                ->pushStatus(404)
-            ,
-            'maps.googleapis.com/*' => Http::sequence()
-                ->push(['results' => [['formatted_address' => 'test']]])
-                ->pushStatus(404)
-            ,
+            'api.postcodes.io/postcodes/*/validate' => Http::response(['result' => true]),
+            'api.postcodes.io/*' => Http::response(['result' => ["postcode" => "TW11 8RR", "country" => "England", "longitude" => "-0.340473", "latitude" => "51.428852"]]),
+            'maps.googleapis.com/*' => Http::response(['results' => [['formatted_address' => 'test']]]),
         ]);
 
         $this->actingAs(User::find(1))
@@ -93,6 +88,7 @@ class ContactTest extends TestCase
             ])
             ->assertJsonPath('data.name', 'changed');
     }
+
     public function testDeleteContactSuccess()
     {
         $this->actingAs(User::find(1))

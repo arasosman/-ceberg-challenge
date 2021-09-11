@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Contact;
 
+use App\Rules\ValidatePostcode;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ContactStoreRequest extends FormRequest
@@ -28,7 +29,7 @@ class ContactStoreRequest extends FormRequest
             'email' => 'required|email',
             'phone' => 'required|string',
             'address' => 'string',
-            'postcode' => 'required|string'
+            'postcode' => ['required', 'string', new ValidatePostcode]
         ];
     }
 }
