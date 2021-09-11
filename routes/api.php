@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RegisterController;
@@ -28,3 +29,4 @@ Route::group([
 });
 
 Route::apiResource('contacts', ContactController::class);
+Route::apiResource('appointments', AppointmentController::class);

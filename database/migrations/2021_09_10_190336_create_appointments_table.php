@@ -18,8 +18,8 @@ class CreateAppointmentsTable extends Migration
             $table->text('address');
             $table->string('postcode')->index();
             $table->timestamp('appointment_date');
-            $table->timestamp('out_of_office_date');
-            $table->timestamp('back_to_office_date');
+            $table->timestamp('out_of_office_date')->nullable();
+            $table->timestamp('back_to_office_date')->nullable();
             $table->foreignId('contact_id')->constrained('contacts')->cascadeOnDelete();
             $table->foreignId('consultant_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
